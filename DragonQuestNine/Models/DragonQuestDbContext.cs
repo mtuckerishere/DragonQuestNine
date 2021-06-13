@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DragonQuestNine.Models
 {
-    public class DragonQuestDbContext :DbContext
+    public class DragonQuestDbContext : DbContext
     {
-        public DragonQuestDbContext(DbContextOptions<DragonQuestDbContext> options) : base(options) 
+        public DragonQuestDbContext(DbContextOptions<DragonQuestDbContext> options) : base(options)
         {
         }
         public virtual DbSet<Accolade> Accolades { get; set; }
+        public virtual DbSet<AccoladeCategory> AccoladeCategories {get; set; }
     }
 }

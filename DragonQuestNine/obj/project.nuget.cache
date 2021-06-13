@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rcUJfcA5fWSXqZWszixckwHi0K/ZqOtQnq6vJvi3ogBpF9a+cKbHPJoreZOtXisGcAT85k6y7jlYv3NgiuckHw==",
+  "dgSpecHash": "YZUjcw/Vg9Mo+tTWSkBLn0leXXw2mMI3Vri0Nu8tdG5cjf0Pqa++Lvc7S5XFGNTStyIJwtsfXtjnYAeFwdPVSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
   "expectedPackageFiles": [
@@ -99,7 +99,8 @@
     "C:\\Users\\micha\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\micha\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\micha\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
   ],
   "logs": []
 }

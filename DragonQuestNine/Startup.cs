@@ -34,6 +34,7 @@ namespace DragonQuestNine
             services.AddDbContext<DragonQuestDbContext>(c => c.UseSqlServer(connectionString));
 
             services.AddScoped<IAccoladeRepository, AccoladeRepository>();
+            services.AddScoped<IAccoladeCategoryRepository, AccoladeCategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
