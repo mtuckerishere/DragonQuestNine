@@ -10,7 +10,7 @@ namespace DragonQuestNine.Models
     {
         public DragonQuestDbContext(DbContextOptions<DragonQuestDbContext> options) : base(options) 
         {
-  
         }
+        public virtual DbSet<Accolade> Accolades { get; set; }
     }
 }

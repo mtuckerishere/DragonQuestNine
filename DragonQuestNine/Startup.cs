@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DragonQuestNine.Models;
+using DragonQuestNine.Services.Accolades;
 
 namespace DragonQuestNine
 {
@@ -31,6 +32,8 @@ namespace DragonQuestNine
 
             var connectionString = Configuration["connectionStrings:dragonQuestDbString"];
             services.AddDbContext<DragonQuestDbContext>(c => c.UseSqlServer(connectionString));
+
+            services.AddScoped<IAccoladeRepository, AccoladeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
