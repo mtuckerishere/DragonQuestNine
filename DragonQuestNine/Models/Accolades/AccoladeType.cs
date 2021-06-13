@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace DragonQuestNine.Models
 {
-    public class AccoladeCategory
+    public class AccoladeType
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
