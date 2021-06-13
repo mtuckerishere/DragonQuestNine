@@ -48,6 +48,7 @@ namespace DragonQuestNine.Controllers
             }
             return Ok(accoladeList);
         }
+
         [HttpGet("{accoladeId}")]
         [ProducesResponseType(200, Type=typeof(AccoladeDto))]
         [ProducesResponseType(400)]

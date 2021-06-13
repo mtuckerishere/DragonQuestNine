@@ -13,12 +13,12 @@ namespace DragonQuestNine.Services.Accolades
         {
             _dragonQuestDbContext = dragonQuestDbContext;
         }
-        public ICollection<AccoladeCategory> AccoladeCategories()
+        public ICollection<AccoladeCategory> GetAllAccoladeCategories()
         {
             return _dragonQuestDbContext.AccoladeCategories.OrderBy(a => a.Name == a.Name).ToList();
         }
 
-        public AccoladeCategory AccoladeCategoryById(int accoladeCategoryId)
+        public AccoladeCategory GetAccoladeCategoryById(int accoladeCategoryId)
         {
             return _dragonQuestDbContext.AccoladeCategories.FirstOrDefault(a => a.Id == accoladeCategoryId);
         }
