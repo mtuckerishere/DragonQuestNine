@@ -11,10 +11,10 @@ namespace DragonQuestNine.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
-    public class AccoladeCategoryController : Controller
+    public class AccoladeCategoriesController : Controller
     {
         private IAccoladeCategoryRepository _accoladeCategoryRepository;
-        public AccoladeCategoryController(IAccoladeCategoryRepository accoladeCategoryRepository)
+        public AccoladeCategoriesController(IAccoladeCategoryRepository accoladeCategoryRepository)
         {
             _accoladeCategoryRepository = accoladeCategoryRepository;
         }

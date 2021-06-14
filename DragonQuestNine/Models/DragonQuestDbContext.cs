@@ -13,5 +13,6 @@ namespace DragonQuestNine.Models
         }
         public virtual DbSet<Accolade> Accolades { get; set; }
         public virtual DbSet<AccoladeCategory> AccoladeCategories {get; set; }
+        public virtual DbSet<AccoladeType> AccoladeTypes { get; set; }
     }
 }
