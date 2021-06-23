@@ -1,4 +1,5 @@
-﻿using DragonQuestNine.Dtos.Accolade;
+﻿using AutoMapper;
+using DragonQuestNine.Dtos.Accolades;
 using DragonQuestNine.Models;
 using DragonQuestNine.Services.Accolades;
 using Microsoft.AspNetCore.Mvc;
@@ -13,102 +14,88 @@ namespace DragonQuestNine.Controllers
     [ApiController]
     public class AccoladesController : Controller
     {
-        private IAccoladeRepository _accoladeRepository;
-        public AccoladesController(IAccoladeRepository accoladeRepository)
+        private readonly IAccoladeService _accoladeService;
+        private readonly IMapper _mapper;
+
+        public AccoladesController(IAccoladeService accoladeService, IMapper mapper)
         {
-            _accoladeRepository = accoladeRepository;
+            _accoladeService = accoladeService;
+            _mapper = mapper;
         }
 
         //api/accolades
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(ICollection<AccoladeDto>))]
-        [ProducesResponseType(400)]
 
-        public IActionResult GetAllAccolades()
+        public async Task<IEnumerable<AccoladeDto>> GetAllAccolades()
         {
-            var accolades = _accoladeRepository.GetAllAccolades().ToList();
+            var accolades = await _accoladeService.GetAllAccolades();
+            var resources = _mapper.Map<IEnumerable<Accolade>, IEnumerable<AccoladeDto>>(accolades);
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            var accoladeList = new List<AccoladeDto>();
-
-            foreach (var accolade in accolades)
-            {
-                accoladeList.Add(new AccoladeDto
-                {
-                    Id = accolade.Id,
-                    Name = accolade.Name,
-                    IsObtained = accolade.IsObtained,
-                    DateObtained = accolade.DateObtained,
-                    AccoladeCategory = accolade.AccoladeCategory
-                });
-            }
-            return Ok(accoladeList);
+            return resources;
         }
+        
 
-        [HttpGet("{accoladeId}")]
-        [ProducesResponseType(200, Type=typeof(AccoladeDto))]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        public ActionResult GetAllcoladeById(int accoladeId)
-        {
-            if (!_accoladeRepository.AccoladeExists(accoladeId)){
-                return NotFound(accoladeId);
-            }
+        //[HttpGet("{accoladeId}", Name= "GetAccoladeById")]
+        //[ProducesResponseType(200, Type=typeof(AccoladeDto))]
+        //[ProducesResponseType(400)]
+        //[ProducesResponseType(404)]
+        //public ActionResult GetAllcoladeById(int accoladeId)
+        //{
+        //    if (!_accoladeRepository.AccoladeExists(accoladeId)){
+        //        return NotFound(accoladeId);
+        //    }
 
-            var accolade = _accoladeRepository.GetAccoladeById(accoladeId);
+        //    var accolade = _accoladeRepository.GetAccoladeById(accoladeId);
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var singleAccolade = new AccoladeDto
-            {
-                Id = accolade.Id,
-                Name = accolade.Name,
-                IsObtained = accolade.IsObtained,
-                DateObtained = accolade.DateObtained,
-                AccoladeCategory = accolade.AccoladeCategory
-            };
+        //    var singleAccolade = new AccoladeDto
+        //    {
+        //        Id = accolade.Id,
+        //        Name = accolade.Name,
+        //        IsObtained = accolade.IsObtained,
+        //        DateObtained = accolade.DateObtained,
+        //    };
 
-            return Ok(singleAccolade);
-        }
+        //    return Ok(singleAccolade);
+        //}
 
-        //api/accolades
-        [HttpPost]
-        public IActionResult CreateAccolade([FromBody]Accolade accoladeToCreate)
-        {
-            if (accoladeToCreate == null)
-            {
-                return BadRequest(accoladeToCreate);
-            }
+        ////api/accolades
+        //[HttpPost]
+        //public IActionResult CreateAccolade([FromBody]Accolade accoladeToCreate)
+        //{
+        //    if (accoladeToCreate == null)
+        //    {
+        //        return BadRequest(accoladeToCreate);
+        //    }
 
-            var accolade = _accoladeRepository.GetAllAccolades()
-                .Where(a => a.Name.Trim().ToUpper() == accoladeToCreate.Name
-                .Trim().ToUpper()).FirstOrDefault();
+        //    var accolade = _accoladeRepository.GetAllAccolades()
+        //        .Where(a => a.Name.Trim().ToUpper() == accoladeToCreate.Name
+        //        .Trim().ToUpper()).FirstOrDefault();
 
-            if(accolade != null)
-            {
-                ModelState.AddModelError("", $"Accolade: {accolade.Name}, already exists.");
-                return StatusCode(422, ModelState);
-            }
+        //    if(accolade != null)
+        //    {
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //        ModelState.AddModelError("", $"Accolade: {accolade.Name}, already exists.");
+        //        return StatusCode(422, ModelState);
+        //    }
 
-            if (!_accoladeRepository.AddAccolade(accoladeToCreate))
-            {
-                ModelState.AddModelError("", $"Something went wrong trying to save {accoladeToCreate.Name}");
-                return StatusCode(500, ModelState);
-            }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            return CreatedAtRoute("GetAccoladeById", new { accoladeId = accoladeToCreate.Id}, accoladeToCreate);
-        }
+        //    if (!_accoladeRepository.AddAccolade(accoladeToCreate))
+        //    {
+        //        ModelState.AddModelError("", $"Something went wrong trying to save {accoladeToCreate.Name}");
+        //        return StatusCode(500, ModelState);
+        //    }
+
+        //    return CreatedAtRoute("GetAccoladeById", new { accoladeId = accoladeToCreate.Id}, accoladeToCreate);
+        //}
     }
 }

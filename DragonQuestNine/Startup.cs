@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DragonQuestNine.Models;
 using DragonQuestNine.Services.Accolades;
+using DragonQuestNine.Repositories.Accolades;
+using DragonQuestNine.Persistance.Contexts;
+using DragonQuestNine.Repositories.UnitOfWork;
 
 namespace DragonQuestNine
 {
@@ -34,8 +37,12 @@ namespace DragonQuestNine
             services.AddDbContext<DragonQuestDbContext>(c => c.UseSqlServer(connectionString));
 
             services.AddScoped<IAccoladeRepository, AccoladeRepository>();
+            services.AddScoped<IAccoladeService, AccoladeService>();
             services.AddScoped<IAccoladeCategoryRepository, AccoladeCategoryRepository>();
-            services.AddScoped<IAccoladeTypeRepository, AccoladeTypeRepository>();
+            services.AddScoped<IAccoladeCategoryService, AccoladeCategoryService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

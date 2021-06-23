@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj": {}
+    "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj": {
+    "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
+        "projectUniqueName": "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
         "projectName": "DragonQuestNine",
-        "projectPath": "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
+        "projectPath": "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\obj\\",
+        "outputPath": "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,6 +44,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.7, )"
