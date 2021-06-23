@@ -50,5 +50,30 @@ namespace DragonQuestNine.Services.Accolades
             }
         }
 
+        public async Task<SaveAccoladeCategoryResponse> UpdateAccoladeCategory(int accoladeCategoryId, AccoladeCategory accoladeCategory)
+        {
+            var existingAccoladeCategory = await _accoladeCategoryRepository.GetAccoladeCategoryById(accoladeCategoryId);
+
+            if (existingAccoladeCategory == null)
+            {
+                return new SaveAccoladeCategoryResponse("Accolade Category not found.");
+            }
+
+            existingAccoladeCategory.Name = accoladeCategory.Name;
+
+            // TODO try and think of more errors to remove try-catch
+            try
+            {
+                _accoladeCategoryRepository.Update(existingAccoladeCategory);
+                await _unitOfWork.CompleteAsync();
+
+                return new SaveAccoladeCategoryResponse(existingAccoladeCategory);
+            }
+            catch(Exception ex)
+            {
+                return new SaveAccoladeCategoryResponse($"An error occurred when updating the category {ex.Message}");
+            }
+        }
+
     }
 }

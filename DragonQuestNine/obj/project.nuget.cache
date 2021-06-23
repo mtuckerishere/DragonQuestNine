@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WWgPEkx0+8FgOhfiaomyyyYzil2hojd1pJRd9JteEr1GnsL2hzRteDLjlfiEq39Ie4WfLdLxG+rPmTtDKYypNw==",
+  "dgSpecHash": "rF/kOPS3brkJz1Hq79MsmtbcGgWaaDqvLYOV5YVv1rAJyc4bpWGCXqSCbfN/orde92s6DYpziuO9fG6G2vHMWA==",
   "success": true,
-  "projectFilePath": "C:\\users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
+  "projectFilePath": "C:\\Users\\micha\\source\\repos\\DragonQuestNine\\DragonQuestNine\\DragonQuestNine.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micha\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

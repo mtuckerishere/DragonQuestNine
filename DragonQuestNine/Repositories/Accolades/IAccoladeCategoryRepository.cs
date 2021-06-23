@@ -11,5 +11,6 @@ namespace DragonQuestNine.Repositories.Accolades
         Task<IEnumerable<AccoladeCategory>> GetAllAccoladeCategories();
         Task AddAccoladeCategory(AccoladeCategory accolageCategory);
         Task<AccoladeCategory> GetAccoladeCategoryById(int accoladeCategoryId);
+        void Update(AccoladeCategory accoladeCategory);
     }
 }

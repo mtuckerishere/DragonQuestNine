@@ -52,8 +52,28 @@ namespace DragonQuestNine.Controllers
 
             var accoladeCategoryDto = _mapper.Map<AccoladeCategory, AccoladeCategoryDto>(result.AccoladeCategory);
 
+            return Ok(accoladeCategoryDto);          
+        }
+
+        [HttpPut("{accoladeCategoryId}")]
+        public async Task<IActionResult> UpdateAccoladeCategory(int accoladeCategoryId, [FromBody] SaveAccoladeCategoryDto accoladeCategoryToUpdate)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var accoladeCategory = _mapper.Map<SaveAccoladeCategoryDto, AccoladeCategory>(accoladeCategoryToUpdate);
+            var result = await _accoladeCategoryService.UpdateAccoladeCategory(accoladeCategoryId, accoladeCategory);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var accoladeCategoryDto = _mapper.Map<AccoladeCategory, AccoladeCategoryDto>(result.AccoladeCategory);
+
             return Ok(accoladeCategoryDto);
-            
         }
     }
 }

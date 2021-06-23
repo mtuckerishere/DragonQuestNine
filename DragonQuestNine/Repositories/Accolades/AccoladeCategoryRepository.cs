@@ -23,12 +23,17 @@ namespace DragonQuestNine.Repositories.Accolades
 
         public async Task<AccoladeCategory> GetAccoladeCategoryById(int accoladeCategoryId)
         {
-            return await _dbContext.AccoladeCategories.Where(ac => ac.Id == accoladeCategoryId).FirstOrDefaultAsync();
+            return await _dbContext.AccoladeCategories.FindAsync(accoladeCategoryId);
         }
 
         public async Task AddAccoladeCategory(AccoladeCategory accoladeCategory)
         {
             await _dbContext.AccoladeCategories.AddAsync(accoladeCategory);
+        }
+
+        public void Update(AccoladeCategory accoladeCategory)
+        {
+            _dbContext.AccoladeCategories.Update(accoladeCategory);
         }
 
     }
