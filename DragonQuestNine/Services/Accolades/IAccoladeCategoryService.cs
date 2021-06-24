@@ -11,8 +11,9 @@ namespace DragonQuestNine.Services.Accolades
     public interface IAccoladeCategoryService
     {
         Task<IEnumerable<AccoladeCategory>> GetAllAccoladeCategories();
-        Task<SaveAccoladeCategoryResponse> AddAccoladeCategory(AccoladeCategory accoladeCategory);
-        Task<SaveAccoladeCategoryResponse> UpdateAccoladeCategory(int accoladeCategoryId, AccoladeCategory accoladeCategory);
+        Task<AccoladeCategoryResponse> AddAccoladeCategory(AccoladeCategory accoladeCategory);
+        Task<AccoladeCategoryResponse> UpdateAccoladeCategory(int accoladeCategoryId, AccoladeCategory accoladeCategory);
+        Task<AccoladeCategoryResponse> DeleteAccoladeCategory(int accoladeCategoryId);
         Task<AccoladeCategory> GetAccoladeCategoryById(int accoladeCategoryId);
     }
 }

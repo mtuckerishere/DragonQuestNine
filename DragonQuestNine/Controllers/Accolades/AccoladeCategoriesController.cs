@@ -75,6 +75,21 @@ namespace DragonQuestNine.Controllers
 
             return Ok(accoladeCategoryDto);
         }
+
+        [HttpDelete("{accoladeCategoryId}")]
+        public async Task<IActionResult> DeleteAccoladeCategory(int accoladeCategoryId)
+        {
+            var accoladeCategory = await _accoladeCategoryService.DeleteAccoladeCategory(accoladeCategoryId);
+
+            if (!accoladeCategory.Success)
+            {
+                return BadRequest(accoladeCategory);
+            }
+
+            var accoladeCategoryToDelete = _mapper.Map<AccoladeCategory, AccoladeCategoryDto>(accoladeCategory.AccoladeCategory);
+
+            return Ok(accoladeCategoryToDelete);
+        }
     }
 }
 

@@ -31,9 +31,14 @@ namespace DragonQuestNine.Repositories.Accolades
             await _dbContext.AccoladeCategories.AddAsync(accoladeCategory);
         }
 
-        public void Update(AccoladeCategory accoladeCategory)
+        public void UpdateAccoladeCategory(AccoladeCategory accoladeCategory)
         {
             _dbContext.AccoladeCategories.Update(accoladeCategory);
+        }
+
+        public void DeleteAccoladeCategory(AccoladeCategory accoladeCategory)
+        {
+            _dbContext.AccoladeCategories.Remove(accoladeCategory);
         }
 
     }

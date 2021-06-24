@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DragonQuestNine.Services.Communication
 {
-    public class SaveAccoladeCategoryResponse : BaseResponse
+    public class AccoladeCategoryResponse : BaseResponse
     {
         public AccoladeCategory AccoladeCategory { get; private set; }
 
-        private SaveAccoladeCategoryResponse(bool success, string message, AccoladeCategory accoladeCategory) : base(success, message)
+        private AccoladeCategoryResponse(bool success, string message, AccoladeCategory accoladeCategory) : base(success, message)
         {
             AccoladeCategory = accoladeCategory;
         }
@@ -20,7 +20,7 @@ namespace DragonQuestNine.Services.Communication
         /// <param name="accoladeCategory">Saved Accolade Category</param>
         /// <returns>Response.</returns>
         
-        public SaveAccoladeCategoryResponse(AccoladeCategory accoladeCategory) : this(true,string.Empty, accoladeCategory) { }
+        public AccoladeCategoryResponse(AccoladeCategory accoladeCategory) : this(true,string.Empty, accoladeCategory) { }
 
         /// <summary>
         /// Creates and error response.
@@ -28,7 +28,7 @@ namespace DragonQuestNine.Services.Communication
         /// <param name="message">Error message.</param>
         /// <returns>Response.</returns>
         
-        public SaveAccoladeCategoryResponse(string message) : this(false, message, null)
+        public AccoladeCategoryResponse(string message) : this(false, message, null)
         { }
     }
 }
