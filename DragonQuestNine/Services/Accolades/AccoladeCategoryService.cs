@@ -85,6 +85,8 @@ namespace DragonQuestNine.Services.Accolades
                 return new AccoladeCategoryResponse("Accolade Category not found");
             }
 
+
+            //TODO try and think of other errors to remove try catch
             try
             {
                 _accoladeCategoryRepository.DeleteAccoladeCategory(existingAccoladeCategory);
