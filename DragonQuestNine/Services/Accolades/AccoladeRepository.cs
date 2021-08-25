@@ -20,13 +20,13 @@ namespace DragonQuestNine.Services.Accolades
 
         public bool AddAccolade(Accolade accolade)
         {
-            _dragonQuestDbContext.Add(accolade);
+            _dragonQuestDbContext.Accolades.Add(accolade);
             return Save();
         }
 
         public bool DeleteAccolade(Accolade accolade)
         {
-             _dragonQuestDbContext.Remove(accolade);
+             _dragonQuestDbContext.Accolades.Remove(accolade);
             return Save();
         }
 
